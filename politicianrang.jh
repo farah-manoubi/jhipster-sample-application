@@ -1,0 +1,14 @@
+entity Country {
+	countryName String
+}
+
+entity Politician {
+ name String,
+ age String,
+ popularity Integer
+}
+
+relationship ManyToOne {
+	Politician{country} to Country
+}
+
