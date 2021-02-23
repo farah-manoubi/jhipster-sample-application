@@ -1,0 +1,44 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="politician">
+            <h2><span jhiTranslate="jhipsterSampleApplicationApp.politician.detail.title">Politician</span> {{ politician.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.politician.name">Name</span></dt>
+                <dd>
+                    <span>{{ politician.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.politician.age">Age</span></dt>
+                <dd>
+                    <span>{{ politician.age }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.politician.popularity">Popularity</span></dt>
+                <dd>
+                    <span>{{ politician.popularity }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.politician.country">Country</span></dt>
+                <dd>
+                    <div *ngIf="politician.country">
+                        <a [routerLink]="['/country', politician.country?.id, 'view']">{{ politician.country?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/politician', politician.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
